@@ -52,3 +52,19 @@ func corsMiddleware(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
+
+package main
+
+import (
+    "net/http"
+    "github.com/gorilla/mux"
+    "your_module/routes"
+)
+
+func main() {
+    router := mux.NewRouter()
+
+    routes.UserRoutes(router)
+
+    http.ListenAndServe(":8080", router)
+}
