@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"API-GO/internal/routes"
+	"github.com/AndresFelipeAceroLopez/API-GO/internal/routes"
 )
 
 func main() {

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"API-GO/internal/models" // Asegúrate que el import coincida con tu go.mod
+	"github.com/AndresFelipeAceroLopez/API-GO/internal/models" // Asegúrate que el import coincida con tu go.mod
 )
 
 // GET: Obtener todos los usuarios
