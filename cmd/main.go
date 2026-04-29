@@ -17,7 +17,6 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	// ruta raíz
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Write([]byte(`{
@@ -26,17 +25,14 @@ func main() {
 		}`))
 	})
 
-	// users
 	mux.Handle("/api/users/", http.StripPrefix("/api/users", routes.UsersRouter()))
 
-	// middleware CORS
 	handler := corsMiddleware(mux)
 
 	log.Println("Servidor en http://localhost:" + port)
 	log.Fatal(http.ListenAndServe(":"+port, handler))
 }
 
-// ---- cors ----
 func corsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
